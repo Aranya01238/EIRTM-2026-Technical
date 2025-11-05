@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin, Users, BookOpen, Award, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/image.jpg";
 
 const importantDates = [
   { label: "Full Paper Submission", date: "10th November, 2025" },
