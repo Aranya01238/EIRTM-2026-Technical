@@ -1,234 +1,299 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { FileText, Target, Zap } from "lucide-react";
+import { FileText, Target, Zap, Cpu, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
+
+const tracks = [
+  {
+    category: "Cognitive Systems & Cognitive AI",
+    topics: [
+      "Applications of Cognitive Systems",
+      "AI & Machine Learning in Cognitive Frameworks",
+      "Cognitive Control and Data Science",
+      "Cognitive IoT and Manufacturing",
+      "Cognitive Radio, Risk Control, and Theory",
+    ],
+  },
+  {
+    category: "IoT & Data Science",
+    topics: [
+      "IoT and Blockchain",
+      "Big Data Analytics",
+      "Edge & Cloud Computing for IoT",
+      "IoT Systems Development and Methodologies",
+      "IoT Applications in Real-World Scenarios",
+    ],
+  },
+  {
+    category: "Information Technology & Software Systems",
+    topics: [
+      "Business Intelligence & Information Systems",
+      "Image Processing and Multimedia",
+      "Software Engineering and Distributed Systems",
+      "Cloud Computing and Data Analytics",
+      "AI in E-Commerce and Recommender Systems",
+    ],
+  },
+  {
+    category: "Mobile Communication & Networking",
+    topics: [
+      "Ad Hoc and Vehicular Networks",
+      "Cyber Security and Cloud Networks",
+      "Mobile and Wireless IP",
+      "Telecommunication Systems",
+      "Satellite and Sensor Networks",
+    ],
+  },
+  {
+    category: "Artificial Intelligence & Machine Learning",
+    topics: [
+      "Explainable and Generative AI",
+      "Computer Vision & Transformers",
+      "AI in Healthcare and Cybersecurity",
+      "Federated & Quantum Machine Learning",
+      "AI for Multi-Agent and Industry Applications",
+    ],
+  },
+  {
+    category: "Robotics and Its Applications",
+    topics: [
+      "Autonomous and Industrial Robots",
+      "Human-Robot Interaction",
+      "Swarm and Learning Robotics",
+      "AI Integration in Robotics",
+      "Robotics for Sustainability and Healthcare",
+    ],
+  },
+];
+
+const importantDates = [
+  { event: "Full Paper Submission", date: "10th November, 2025" },
+  { event: "Acceptance Notification", date: "10th December, 2025" },
+  { event: "Registration Deadline", date: "20th March, 2026" },
+  { event: "Presentation Submission", date: "20th March, 2026" },
+  { event: "Conference Dates", date: "21st – 23rd April, 2026" },
+];
 
 const CallForPapers = () => {
-  const tracks = [
-    {
-      category: "Artificial Intelligence & Machine Learning",
-      topics: [
-        "Deep Learning and Neural Networks",
-        "Natural Language Processing",
-        "Computer Vision",
-        "Reinforcement Learning",
-        "AI Ethics and Explainability",
-      ],
-    },
-    {
-      category: "Internet of Things & Smart Systems",
-      topics: [
-        "IoT Architectures and Protocols",
-        "Smart Cities and Infrastructure",
-        "Industrial IoT",
-        "Wearable and Embedded Systems",
-        "Edge Computing for IoT",
-      ],
-    },
-    {
-      category: "Robotics & Automation",
-      topics: [
-        "Autonomous Systems",
-        "Human-Robot Interaction",
-        "Swarm Robotics",
-        "Industrial Automation",
-        "Soft Robotics and Bio-inspired Systems",
-      ],
-    },
-    {
-      category: "Sustainable Technology & Green Energy",
-      topics: [
-        "Renewable Energy Systems",
-        "Energy Storage Solutions",
-        "Smart Grid Technologies",
-        "Environmental Monitoring",
-        "Sustainable Manufacturing",
-      ],
-    },
-    {
-      category: "Data Science & Big Data",
-      topics: [
-        "Data Mining and Analytics",
-        "Predictive Modeling",
-        "Data Visualization",
-        "Cloud-based Data Processing",
-        "Real-time Analytics",
-      ],
-    },
-    {
-      category: "Cybersecurity & Blockchain",
-      topics: [
-        "Network Security",
-        "Cryptography",
-        "Blockchain Applications",
-        "Privacy-Preserving Technologies",
-        "Threat Detection and Response",
-      ],
-    },
-    {
-      category: "Cloud Computing & Edge Computing",
-      topics: [
-        "Cloud Architecture and Services",
-        "Serverless Computing",
-        "Edge AI",
-        "Distributed Systems",
-        "Cloud Security",
-      ],
-    },
-  ];
-
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="section-container">
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-[#0f172a] pt-24 pb-16 font-sans">
+      <motion.div
+        className="max-w-6xl mx-auto px-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-primary mb-4">Call for Papers</h1>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            EIRTM 2026 invites original, unpublished research papers,
-            work-in-progress reports, and case studies from researchers,
-            academicians, and industry professionals.
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-extrabold mb-4 leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 drop-shadow-[0_0_20px_rgba(56,189,248,0.5)]">
+            Call for Papers – ICECIT 2026
+          </h1>
+          <p className="text-lg text-[#1e293b] max-w-3xl mx-auto font-medium leading-relaxed">
+            The{" "}
+            <span className="text-cyan-600 font-semibold">
+              International Conference on Emerging Computing and Innovative
+              Technologies (ICECIT 2026)
+            </span>{" "}
+            invites{" "}
+            <span className="text-sky-600 font-semibold">
+              original and unpublished research papers
+            </span>
+            , technical reports, and case studies from researchers,
+            academicians, and industry experts.
           </p>
         </div>
 
         {/* Submission Types */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <Card className="p-8 text-center card-hover border-t-4 border-t-primary">
-            <FileText className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-3">Full Papers</h3>
-            <p className="text-muted-foreground">
-              8-10 pages presenting complete research with results and analysis
-            </p>
-          </Card>
-
-          <Card className="p-8 text-center card-hover border-t-4 border-t-secondary">
-            <Target className="h-12 w-12 text-secondary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-3">Short Papers</h3>
-            <p className="text-muted-foreground">
-              4-6 pages for work-in-progress or preliminary research findings
-            </p>
-          </Card>
-
-          <Card className="p-8 text-center card-hover border-t-4 border-t-primary">
-            <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-3">Industry Papers</h3>
-            <p className="text-muted-foreground">
-              4-8 pages describing practical applications and case studies
-            </p>
-          </Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          {[
+            {
+              icon: (
+                <FileText className="h-12 w-12 text-cyan-500 mx-auto mb-4" />
+              ),
+              title: "Full Papers",
+              desc: "8–10 pages presenting complete research with full results and analysis.",
+            },
+            {
+              icon: <Target className="h-12 w-12 text-sky-500 mx-auto mb-4" />,
+              title: "Short Papers",
+              desc: "4–6 pages for work-in-progress or early-stage research ideas.",
+            },
+            {
+              icon: <Zap className="h-12 w-12 text-cyan-400 mx-auto mb-4" />,
+              title: "Industry Papers",
+              desc: "4–8 pages highlighting practical applications and innovation cases.",
+            },
+          ].map((item, i) => (
+            <motion.div key={i} whileHover={{ scale: 1.05 }}>
+              <Card className="p-8 text-center bg-white border border-cyan-100 hover:shadow-[0_0_25px_#38bdf8] hover:border-cyan-400 transition-all rounded-xl">
+                {item.icon}
+                <h3 className="text-xl font-bold mb-3 text-sky-700">
+                  {item.title}
+                </h3>
+                <p className="text-[#334155] font-medium">{item.desc}</p>
+              </Card>
+            </motion.div>
+          ))}
         </div>
 
         {/* Research Tracks */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8 text-primary">
+        <div className="mb-20">
+          <h2 className="text-4xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-600 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
             Research Tracks
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {tracks.map((track, index) => (
-              <Card key={index} className="p-6 card-hover">
-                <h3 className="text-xl font-bold mb-4 text-primary flex items-start gap-2">
-                  <span className="text-secondary">{index + 1}.</span>
-                  {track.category}
-                </h3>
-                <ul className="space-y-2">
-                  {track.topics.map((topic, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2 text-muted-foreground"
-                    >
-                      <span className="text-secondary mt-1">•</span>
-                      <span>{topic}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+            {tracks.map((track, i) => (
+              <motion.div key={i} whileHover={{ scale: 1.02 }}>
+                <Card className="p-6 border border-sky-100 bg-white hover:bg-cyan-50 rounded-xl shadow-sm transition-all hover:shadow-[0_0_20px_#06b6d4]">
+                  <h3 className="text-xl font-bold mb-3 text-sky-700 flex items-center gap-2">
+                    <Cpu className="h-5 w-5 text-cyan-500" />
+                    <span className="drop-shadow-[0_0_10px_rgba(56,189,248,0.4)]">
+                      {track.category}
+                    </span>
+                  </h3>
+                  <ul className="list-disc list-inside text-[#334155] font-medium space-y-1 pl-3">
+                    {track.topics.map((topic, idx) => (
+                      <li
+                        key={idx}
+                        className="hover:text-cyan-600 hover:drop-shadow-[0_0_6px_#06b6d4] transition-all"
+                      >
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Submission Guidelines */}
-        <Card className="p-8 mb-12 bg-muted">
-          <h2 className="text-3xl font-bold mb-6 text-primary">
+        <Card className="p-10 mb-20 bg-gradient-to-br from-blue-100 to-cyan-50 border border-cyan-200 shadow-md rounded-2xl">
+          <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-500">
             Submission Guidelines
           </h2>
-          <div className="space-y-4 text-lg">
-            <div className="flex gap-3">
-              <span className="text-secondary font-bold">•</span>
-              <p>
-                All submissions must be{" "}
-                <strong>original and unpublished</strong> work not under
-                consideration elsewhere
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-secondary font-bold">•</span>
-              <p>
-                Papers must be written in <strong>English</strong> and follow
-                the IEEE conference format
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-secondary font-bold">•</span>
-              <p>
-                Submissions should be made through the{" "}
-                <strong>EasyChair system</strong>
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-secondary font-bold">•</span>
-              <p>
-                All papers will undergo a{" "}
-                <strong>double-blind peer review</strong> process
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-secondary font-bold">•</span>
-              <p>
-                At least one author of an accepted paper must{" "}
-                <strong>register and present</strong> at the conference
-              </p>
-            </div>
-          </div>
+          <ul className="space-y-3 text-lg text-[#1e293b] font-medium leading-relaxed">
+            <li>
+              • Submissions must be{" "}
+              <span className="text-cyan-600 font-semibold">
+                original and unpublished
+              </span>
+              .
+            </li>
+            <li>
+              • Papers must be written in{" "}
+              <span className="text-sky-600 font-semibold">English</span>{" "}
+              following the IEEE format.
+            </li>
+            <li>
+              • Submit via the{" "}
+              <span className="text-cyan-600 font-semibold">
+                EasyChair submission system
+              </span>
+              .
+            </li>
+            <li>
+              • All papers undergo a{" "}
+              <span className="text-sky-600 font-semibold">
+                double-blind peer review
+              </span>{" "}
+              process.
+            </li>
+            <li>
+              • One author of each accepted paper must{" "}
+              <span className="text-cyan-600 font-semibold">
+                register and present
+              </span>{" "}
+              at the conference.
+            </li>
+          </ul>
         </Card>
 
-        {/* Important Dates */}
-        <Card className="p-8 mb-12 bg-gradient-primary text-white">
-          <h2 className="text-3xl font-bold mb-6">Important Dates</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-            <div className="flex justify-between items-center border-b border-white/20 pb-3">
-              <span className="font-semibold">Paper Submission Deadline:</span>
-              <span className="text-secondary-light">Comming Soon</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-white/20 pb-3">
-              <span className="font-semibold">Notification of Acceptance:</span>
-              <span className="text-secondary-light">Comming Soon</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-white/20 pb-3">
-              <span className="font-semibold">Camera-Ready Submission:</span>
-              <span className="text-secondary-light">Comming Soon</span>
-            </div>
-            <div className="flex justify-between items-center border-b border-white/20 pb-3">
-              <span className="font-semibold">Early Bird Registration:</span>
-              <span className="text-secondary-light">Comming Soon</span>
+        {/* 🌟 Important Dates – Always Visible Timeline Journey */}
+        <section className="py-20">
+          <h2 className="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-600 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+            Important Dates
+          </h2>
+
+          <div className="relative max-w-6xl mx-auto px-4">
+            {/* Horizontal path for desktop */}
+            <div className="hidden md:block absolute left-0 right-0 top-1/2 h-[3px] bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-50 blur-[1px]" />
+
+            {/* Vertical path for mobile */}
+            <div className="absolute left-[34px] top-0 h-full w-[3px] bg-gradient-to-b from-cyan-400 via-sky-500 to-blue-500 rounded-full md:hidden" />
+
+            {/* Timeline items */}
+            <div className="flex flex-col md:flex-row md:justify-between items-center gap-16 md:gap-0 relative z-10">
+              {importantDates.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                  className="relative flex flex-col items-center md:w-[200px] lg:w-[220px]"
+                >
+                  {/* Connecting line for mobile */}
+                  {index !== 0 && (
+                    <div className="md:hidden absolute -top-16 w-[2px] h-16 bg-gradient-to-b from-cyan-400 to-sky-400"></div>
+                  )}
+
+                  {/* Node */}
+                  <motion.div
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring", stiffness: 250 }}
+                    className="relative flex items-center justify-center group mb-5"
+                  >
+                    {/* Glow ring */}
+                    <div className="absolute inset-0 rounded-full bg-cyan-400 blur-2xl opacity-40 animate-pulse"></div>
+
+                    {/* Main circle */}
+                    <div className="relative w-16 h-16 rounded-full border-[3px] border-cyan-400 bg-white flex items-center justify-center shadow-[0_0_20px_#06b6d4] group-hover:shadow-[0_0_35px_#06b6d4] transition-all duration-300">
+                      <Calendar className="w-7 h-7 text-cyan-600 drop-shadow-[0_0_6px_#06b6d4]" />
+                    </div>
+                  </motion.div>
+
+                  {/* Always-visible label */}
+                  <div className="text-center">
+                    <h4 className="text-sky-700 text-sm md:text-base font-semibold uppercase tracking-wide mb-1">
+                      {item.event}
+                    </h4>
+                    <p className="text-cyan-600 text-sm md:text-base font-semibold">
+                      {item.date}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </Card>
+        </section>
 
-        {/* CTA */}
+        {/* CTA Section */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold mb-6">
-            Ready to Submit Your Paper?
+          <h3 className="text-2xl font-bold mb-6 text-sky-700">
+            Be Part of <span className="text-cyan-600">ICECIT 2026</span> —
+            Submit Your Work Today!
           </h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="btn-primary">
-              <Link to="/submission">Submit Now</Link>
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-sky-600 hover:to-cyan-600 text-white font-semibold px-8 py-6 shadow-md hover:shadow-[0_0_25px_#06b6d4] transition-transform hover:scale-105"
+            >
+              <Link to="/submission">Submit Paper</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/publication">View Publication Details</Link>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-500 hover:text-white px-8 py-6 transition-transform hover:scale-105"
+            >
+              <Link to="/publication">Publication Details</Link>
             </Button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

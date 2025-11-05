@@ -1,130 +1,145 @@
 import { Card } from "@/components/ui/card";
-import { Mic, Award, Building2 } from "lucide-react";
-
-interface Speaker {
-  name: string;
-  designation: string;
-  affiliation: string;
-  topic: string;
-  bio: string;
-}
+import { Mic, Calendar, Award } from "lucide-react";
+import { motion } from "framer-motion";
 
 const KeynoteSpeakers = () => {
-  const speakers: Speaker[] = [
+  const upcomingSpeakers = [
     {
-      name: "Prof. Dr. John Anderson",
-      designation: "Professor of Artificial Intelligence",
-      affiliation: "Massachusetts Institute of Technology (MIT), USA",
-      topic: "The Future of AI: Ethics, Innovation, and Society",
-      bio: "Prof. Anderson is a leading researcher in artificial intelligence with over 25 years of experience. He has published more than 200 papers and holds numerous patents in machine learning and neural networks.",
+      name: "Speaker Announcement Soon",
+      designation: "Awaiting Confirmation",
+      topic: "To Be Revealed",
     },
     {
-      name: "Dr. Sarah Chen",
-      designation: "Chief Technology Officer",
-      affiliation: "Global Tech Innovations, Singapore",
-      topic: "IoT Revolution: Transforming Industries through Connected Systems",
-      bio: "Dr. Chen is a pioneer in IoT architecture and has led the development of smart city solutions deployed in over 50 cities worldwide. She is a recipient of the IEEE Innovation Award.",
+      name: "Speaker Announcement Soon",
+      designation: "Awaiting Confirmation",
+      topic: "To Be Revealed",
     },
     {
-      name: "Prof. Rajesh Kumar",
-      designation: "Director, Advanced Robotics Lab",
-      affiliation: "Indian Institute of Technology (IIT) Bombay, India",
-      topic: "Robotics and Automation: Shaping the Industrial Future",
-      bio: "Prof. Kumar has made significant contributions to the field of robotics and automation. His research focuses on collaborative robots and has been instrumental in advancing manufacturing technologies.",
+      name: "Speaker Announcement Soon",
+      designation: "Awaiting Confirmation",
+      topic: "To Be Revealed",
     },
     {
-      name: "Dr. Maria Rodriguez",
-      designation: "Head of Research",
-      affiliation: "European Center for Sustainable Technology, Germany",
-      topic: "Green Technology: Innovations for a Sustainable Tomorrow",
-      bio: "Dr. Rodriguez is an internationally recognized expert in renewable energy and sustainable technology. Her work on energy storage systems has received multiple awards and is implemented globally.",
+      name: "Speaker Announcement Soon",
+      designation: "Awaiting Confirmation",
+      topic: "To Be Revealed",
     },
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="section-container">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-primary mb-4">Keynote Speakers</h1>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            EIRTM 2025 is honored to host distinguished speakers from leading institutions and
-            organizations worldwide. Learn from their expertise and insights.
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 pt-24 pb-16 text-[#0f172a]">
+      <motion.div
+        className="max-w-6xl mx-auto px-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 drop-shadow-[0_0_20px_rgba(56,189,248,0.5)] mb-4">
+            Keynote Speakers
+          </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-sky-500 mx-auto mb-6 rounded"></div>
+          <p className="text-lg text-[#1e293b] max-w-3xl mx-auto leading-relaxed">
+            <span className="font-semibold text-sky-600">ICECIT 2026</span> will
+            feature a lineup of distinguished keynote speakers from across the
+            globe. Our confirmed speaker list will be announced soon — stay
+            tuned for updates!
           </p>
         </div>
 
-        {/* Speakers Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {speakers.map((speaker, index) => (
-            <Card
-              key={index}
-              className={`p-8 card-hover border-t-4 ${
-                index % 2 === 0 ? "border-t-primary" : "border-t-secondary"
-              }`}
+        {/* Placeholder Speaker Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-24">
+          {upcomingSpeakers.map((speaker, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+              viewport={{ once: true }}
             >
-              {/* Speaker Icon/Placeholder */}
-              <div className="bg-gradient-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                <Mic className="h-12 w-12 text-white" />
-              </div>
-
-              {/* Speaker Name and Title */}
-              <div className="text-center mb-4">
-                <h2 className="text-2xl font-bold mb-2">{speaker.name}</h2>
-                <div className="flex items-center justify-center gap-2 text-muted-foreground mb-2">
-                  <Award className="h-4 w-4" />
-                  <p className="font-semibold">{speaker.designation}</p>
+              <Card className="p-8 bg-white border border-cyan-100 rounded-2xl text-center shadow-sm hover:shadow-[0_0_25px_#38bdf8] transition-all duration-300">
+                <div className="relative w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-cyan-400 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+                  <div className="relative bg-gradient-to-br from-cyan-400 to-sky-500 rounded-full w-24 h-24 flex items-center justify-center text-white shadow-[0_0_25px_#06b6d4]">
+                    <Mic className="h-10 w-10" />
+                  </div>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <Building2 className="h-4 w-4" />
-                  <p>{speaker.affiliation}</p>
+
+                <h2 className="text-xl font-bold text-sky-700 mb-2">
+                  {speaker.name}
+                </h2>
+                <p className="text-cyan-600 font-medium mb-3">
+                  {speaker.designation}
+                </p>
+                <div className="bg-gradient-to-r from-cyan-50 to-sky-50 rounded-lg p-3 shadow-inner border border-cyan-100">
+                  <h3 className="text-xs text-slate-500 font-semibold mb-1">
+                    TOPIC
+                  </h3>
+                  <p className="text-sky-700 font-semibold">{speaker.topic}</p>
                 </div>
-              </div>
-
-              {/* Talk Topic */}
-              <div className="bg-muted p-4 rounded-lg mb-4">
-                <h3 className="font-bold text-sm text-muted-foreground mb-2">KEYNOTE TOPIC:</h3>
-                <p className="text-lg font-semibold text-primary">{speaker.topic}</p>
-              </div>
-
-              {/* Bio */}
-              <div>
-                <h3 className="font-bold text-sm text-muted-foreground mb-2">BIOGRAPHY:</h3>
-                <p className="text-muted-foreground leading-relaxed">{speaker.bio}</p>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        {/* More Speakers Coming Soon */}
-        <Card className="p-12 text-center bg-gradient-hero text-white">
-          <h2 className="text-3xl font-bold mb-4">More Speakers Coming Soon!</h2>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            We are finalizing our lineup of distinguished speakers. Check back regularly for
-            updates on additional keynote speakers and special sessions.
-          </p>
-        </Card>
+        {/* Coming Soon Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Card className="p-16 text-center bg-gradient-to-r from-cyan-500 to-sky-500 text-white shadow-lg rounded-3xl">
+            <h2 className="text-4xl font-extrabold mb-4 tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+              More Speakers Coming Soon!
+            </h2>
+            <p className="text-lg opacity-90 max-w-3xl mx-auto leading-relaxed">
+              We’re curating an exceptional lineup of thought leaders,
+              innovators, and global experts in computing, AI, IoT, and
+              sustainable technology.
+              <span className="font-semibold text-white">
+                {" "}
+                Stay tuned for official announcements!
+              </span>
+            </p>
+            <div className="mt-8 flex items-center justify-center gap-3 text-white/90">
+              <Calendar className="h-5 w-5" />
+              <p className="text-lg font-medium">Final List by March 2026</p>
+            </div>
+          </Card>
+        </motion.div>
 
-        {/* Speaking Opportunity */}
-        <Card className="p-8 mt-12 bg-muted border-l-4 border-l-secondary">
-          <h2 className="text-2xl font-bold mb-4 text-primary">
-            Interested in Speaking at EIRTM 2025?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-4">
-            We welcome proposals for keynote speeches, panel discussions, and special sessions from
-            industry leaders and academic experts.
-          </p>
-          <p className="text-muted-foreground">
-            Contact us at:{" "}
-            <a
-              href="mailto:speakers@eirtm2025.org"
-              className="text-primary hover:underline font-semibold"
-            >
-              speakers@eirtm2025.org
-            </a>
-          </p>
-        </Card>
-      </div>
+        {/* Speaking Opportunity Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-16"
+        >
+          <Card className="p-10 bg-gradient-to-br from-blue-100 to-cyan-50 border border-cyan-200 rounded-2xl shadow-sm">
+            <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-sky-600">
+              Interested in Speaking at ICECIT 2026?
+            </h2>
+            <p className="text-lg text-[#334155] mb-4">
+              We welcome proposals for keynote sessions, panel discussions, and
+              technical talks from leaders and researchers in emerging
+              technologies.
+            </p>
+            <p className="text-[#334155]">
+              Reach out to us at{" "}
+              <a
+                href="mailto:speakers@icecit2026.org"
+                className="text-cyan-600 hover:underline font-semibold"
+              >
+                speakers@icecit2026.org
+              </a>{" "}
+              to collaborate and share your expertise at this prestigious event.
+            </p>
+          </Card>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
