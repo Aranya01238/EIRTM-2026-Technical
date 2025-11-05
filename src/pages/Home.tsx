@@ -54,10 +54,9 @@ const Home = () => {
             </div>
             <div className="hidden sm:block text-sky-400 font-light">|</div>
             <div className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-cyan-500" />
               <span className="font-medium">
-                {" "}
-                The Photovoltaic Institute of Île-de-France,Paris, France{" "}
+                <span className="font-bold">Venue:</span> The Photovoltaic
+                Institute of Île-de-France, Paris, France{" "}
               </span>
             </div>
           </div>
