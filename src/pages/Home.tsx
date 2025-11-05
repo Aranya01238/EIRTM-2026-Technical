@@ -42,7 +42,9 @@ const Home = () => {
             International Conference on Emerging Computing & Innovative
             Technologies
           </h1>
-          <p className="text-3xl md:text-4xl mb-4 font-semibold text-sky-700"> {/* Increased text size */}
+          <p className="text-3xl md:text-4xl mb-4 font-bold text-sky-700">
+            {" "}
+            {/* Increased text size */}
             ICECIT, 2026
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg mb-8 text-[#1e293b]">
